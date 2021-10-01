@@ -39,9 +39,9 @@ class RailRoad
       when 9
         self.take_route
       when 10
-        self.move_train
+        self.move_a_train
       when 11
-        self.back_train
+        self.back_a_train
       when 12
         self.trains_list
       when 13
@@ -218,7 +218,7 @@ class RailRoad
     end
   end
   
-  def take_route
+  def take_a_route
     print "Номер поезда, которому будет назначен маршрут: "
     num_train = gets.chomp.to_i
     
@@ -228,14 +228,14 @@ class RailRoad
     number = get_train(number)
     route_name = get_route(route_name)
       
-    if trains.fetch(number).take_route(routes.fetch(route_name))
+    if trains.fetch(num_train).take_route(self)(routes.fetch(route_name))
       puts "Поезду назначен маршрут"
     else
       puts "Указанных поезда/маршрута не существует"
     end
   end
 
-  def move_train
+  def move_a_train
     print "Номер поезда: "
     num_train = gets.chomp.to_i
       
@@ -247,7 +247,7 @@ class RailRoad
     end
   end
 
-  def back_train
+  def back_a_train
     print "Номер поезда: "
     num_train = gets.chomp.to_i
       
